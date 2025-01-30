@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Poppins", serif;
+}
+
+.floating-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 2% auto;
+  width: 80%;
+  padding: 5px 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.floating-header.transparent {
+  background-color: transparent;
+  border: none;
+  border-radius: 50px;
+}
+
+.floating-header.solid {
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.floating-header .logo-header img {
+  height: 40px;
+}
+
+.floating-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.floating-header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-weight: 300;
+}
+
+.floating-header nav ul li a:hover {
+  color: #f0f0f0;
+}
+
+.button-header {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  padding: 7px 20px;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, background-position 0.5s ease;
+  margin-left: 5%;
+  text-decoration: none; 
+}
+
+.button-header:hover {
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+  background-position: 0 0;
+}
+
+.navInfo {
+  display: flex;
+  align-items: baseline;
+  font-size: 20px;
+}
+
+.container-header {
+  font-weight: 100;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.logo-header {
+  width: 100px;
+  height: 100px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background-color: white;
+  margin-bottom: 5px;
+  transition: 0.3s ease;
+}
+
+.frontPageTitle {
+  font-size: 54px;
+  font-weight: 600;
+}
+
+.initBtn {
+  background: none;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 25px;
+  text-decoration: none;
+  font-size: 20px;
+  border-radius: 25px;
+  font-weight: 400;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+
+.initBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(90deg, #8c52ff, #d7877b);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.initBtn:hover {
+  color: white;
+  border-color: transparent; /* Esconde a borda branca ao aplicar o gradiente */
+}
+
+.initBtn:hover::before {
+  opacity: 1;
+}
+
+.initBtn::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* Ocupa toda a área do botão */
+  border-radius: 25px;
+  padding: 2px; /* Largura da borda */
+  background: linear-gradient(90deg, #8c52ff, #d7877b);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.initBtn:hover::after {
+  opacity: 1;
+}
+
+.nossosProjetos {
+  font-family: "Poppins";
+  background-color: #f2f1f6;
+  height: 100vh;
+}
+
+.npTitle {
+  padding-top: 10%;
+}
+
+.npTitle p {
+  font-size: 25px;
+  font-weight: 300;
+  color: #8c52ff;
+  margin-bottom: 5px;
+}
+
+.npTitle h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #323131;
+  letter-spacing: -2.5px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #8c52ff, #d7877b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.npContent {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.slider-container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 400px;
+  margin: 5% auto;
+  font-family: "Poppins";
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  opacity: 0; /* Inicialmente, o overlay está invisível */
+  visibility: hidden; /* Inicialmente, o overlay está invisível */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Transição suave */
+}
+
+.card:hover .card-overlay {
+  opacity: 1; /* Torna o overlay visível quando o card é hovered */
+  visibility: visible; /* Torna o overlay visível quando o card é hovered */
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.card-overlay h3 {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Poppins";
+  width: 90%;
+}
+
+.card-overlay p {
+  margin: 10px 0;
+  overflow: hidden;
+  height: 30%;
+}
+
+.card-overlay p:hover {
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.card-btn {
+  margin: 10px 0 20px;
+  padding: 0 1px;
+  border: none;
+  background: none;
+  border: 2px solid white;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  font-family: "Poppins";
+  letter-spacing: 1.1px;
+  width: 60%;
+}
+
+.arrow {
+  font-size: 24px;
+  color: #8c52ff;
+  cursor: pointer;
+}
