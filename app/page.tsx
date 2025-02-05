@@ -13,6 +13,16 @@ import afroempreendedorismo from '../app/img/3.png'
 import etnodesenvolvimento from '../app/img/etnodesenvolvimento.jpg'
 import empreendedorismo from '../app/img/empreendedorismo.jpg'
 import techgirls from '../app/img/techgirls.jpg'
+import sobreNos from '../app/img/sobre.png';
+import parceiros from '../app/img/parceiros.png';
+import missaoD from '../app/img/missaoDim.png';
+import visaoD from '../app/img/visaoDim.png';
+import valoresD from '../app/img/valoresDim.png';
+import missaoL from '../app/img/missaoLit.png';
+import visaoL from '../app/img/visaoLit.png';
+import valoresL from '../app/img/valoresLit.png';
+import sobre from '../app/img/9.png';
+import TeamCarousel from '../app/components/team';
 
 const contentStyle = {
   height: '100vh',
@@ -27,6 +37,13 @@ const contentStyle = {
 const HomePage = () => {
   const [cardData, setCardData] = useState([]);
   const projectImages = [empreendedorismo, etnodesenvolvimento, afroempreendedorismo, techgirls];
+  const [active, setActive] = useState("visao");
+
+  const titleColors = {
+    missao: "#ae6ac2",
+    visao: "#c278a0",
+    valores: "#db8a71",
+  };
   
   useEffect(() => {
     const options = { method: 'GET', headers: { 'User-Agent': 'insomnia/10.3.0' } };
@@ -99,19 +116,13 @@ const HomePage = () => {
       </div>
     </div>
     <div className='nossosProjetos'>
-      <div className='npContent'>
-        <div className='npTitle'>
+      <div className='content'>
+        <div className='title'>
           <p>Nossos Projetos <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>-----------------------</a></p>
           <h1>Apoie projetos de impacto que <br/> 
-          transformam vidas de <a style={{
-            backgroundImage: "linear-gradient(90deg, #8c52ff, #d7877b)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent"
-          }}>verdade.</a></h1>
+          transformam vidas de <span className="gradient-text">verdade.</span></h1>
         </div>
         <div className="slider-container">
-
           <div className="slider-container">
           <Carousel dots={false} arrows slidesToShow={3}>
               {cardData.map((card, index) => (
@@ -127,6 +138,172 @@ const HomePage = () => {
                 </div>
               ))}
             </Carousel>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className='sobreNobis'>
+      <div className="content">
+        <div className='title'>
+          <p>Sobre Nós <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>-----------------------</a></p>
+          <h1>Conheça o <span className="gradient-text">Instituto.</span></h1>
+        </div>
+        <div className="sobreNosCards">
+          <a><img src={sobreNos.src} alt="Nobis" /></a>
+        </div>
+      </div>
+    </div>
+    <div className="parceiros">
+      <img src={parceiros.src} />
+    </div>
+    <div className="playlist">
+      <div className="content">
+        <div className="title">
+          <p>Histórias Reais <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>-----------------------</a></p>
+          <h1>Pessoas <span className="gradient-text">Reais.</span></h1>
+        </div>
+        <div className="playlistContainer">
+        <iframe style={{ borderRadius: "40px" }} width="100%" height="800" src="https://www.youtube.com/embed/videoseries?si=Rnbquy9ihCsdkP3Q&amp;list=PLGUiEiyT-j64Fd-3oAXavx9D0kyBmQ7LN" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>  
+        </div>
+      </div>
+    </div>
+    <div className="mvv">
+      <div className="content">
+        <div className="title">
+          <p>
+            Conheça nossa{" "}
+            <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>
+              -----------------------
+            </a>
+          </p>
+          <h1>
+            Missão, Visão e <span className="gradient-text">Valores.</span>
+          </h1>
+        </div>
+        <div className="mvvContainer">
+          {[
+            {
+              key: "missao",
+              imgD: missaoD.src,
+              imgL: missaoL.src,
+              title: "Nossa missão",
+              text: "Gerar Economia Regenerativa a partir da Educação + Geração de Renda com Presença Digital Humanizada.",
+            },
+            {
+              key: "visao",
+              imgD: visaoD.src,
+              imgL: visaoL.src,
+              title: "Nossa visão",
+              text: "Ser exponencial para transformar realidades de vulnerabilidade em prosperidade regenerativa a partir da educação e ativação de renda pela presença digital.",
+            },
+            {
+              key: "valores",
+              imgD: valoresD.src,
+              imgL: valoresL.src,
+              title: "Nossos valores",
+              text: (
+                <ul>
+                  <li>Tecnologia no Meio, Pessoas no Centro</li>
+                  <br />
+                  <li>Ser exponencial para escalar transformações que importam no mundo.</li>
+                  <br />
+                  <li>Impacto é escalável quando as redes são infinitas</li>
+                  <br />
+                  <li>Presença global, desenvolvimento local.</li>
+                </ul>
+              ),
+            },
+          ].map(({ key, imgD, imgL, title, text }) => (
+            <div
+              key={key}
+              className={`mvvCard ${active === key ? "meio" : "lado"}`}
+              onMouseEnter={() => setActive(key)}
+            >
+              <div className={`mvvCardContent ${active === key ? "lit" : "dim"}`}>
+                <img src={active === key ? imgL : imgD} />
+                <h1 style={{ color: active === key ? titleColors[key] : "#504964" }}>{title}</h1>
+                <span>{text}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div className="sobre">
+      <div className="content">
+        <div className="sectionContent">
+          <div className="text">
+            <div className='title'>
+              <p>Sobre a Nobis <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>-----------------------</a></p>
+              <h1>Tecnologia alinhada ao <a className="gradient-text">impacto.</a></h1>
+            </div>
+            <div className="description">
+                <span>Saiba em tempo real os impactos que seus investimentos promovem para as pessoas, comunidades e o planeta. Monitoramos em tempo real todos os fluxos de Impacto a partir de 30 indicadores em dashboards. Reports contínuos sobre Investimento em todas as dimensões do Impacto.</span>
+                <div className="data">
+                  <div className="dataItem" style={{ textAlign: "left" }}>
+                    <h1 style={{ color: "#8e53fc" }}>30</h1>
+                    <span>Indicadores<br/>
+                    em tempo real</span>
+                  </div>
+                  <div className="dataItem" style={{ textAlign: "center" }}>
+                    <h1 className="gradient-text">13 Mil</h1>
+                    <span>Pessoas<br/>
+                    Conectadas</span>
+                  </div>
+                  <div className="dataItem" style={{ textAlign: "right" }}>
+                    <h1 style={{ color: "#d7877b" }}>17</h1>
+                    <span>ODS<br/>
+                    Contemplados</span>
+                  </div>
+                </div>
+              </div>
+          </div>    
+          <img src={sobre.src} />   
+        </div>
+      </div>
+    </div>
+    <div className="equipe">
+      <div className="content">
+        <div className="sectionContent"> 
+          <div className="carousel">
+            <TeamCarousel /> 
+          </div>
+          <div className="text">
+            <div className='title'>
+              <p>As faces por trás <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>----------------</a></p>
+              <h1>Quem somos <a className="gradient-text">nós?</a></h1>
+            </div>
+            <span>
+            A Nobis é uma plataforma de ESG 4.0 que conecta as empresas aos seus públicos a partir de programas socioambientais escaláveis.
+            <br/><br/>Nossa missão é gerar valor compartilhado com monitoramento de indicadores de impacto em tempo real, ajudando as empresas a alcançar seus objetivos ESG de forma eficaz e transparente.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="resultados">
+      <div className="content">
+        <div className="resultadosContent">
+          <div className="title">
+            <h1>Resultados do Instituto Nobis em 2 anos.</h1>
+          </div>
+          <div className="resultadosContainer">
+            <div className="resultadosCard">
+              <h1 className="gradient-text">+1000</h1>
+              <span>Pessoas Impactadas</span>
+            </div>
+            <div className="resultadosCard">
+              <h1 className="gradient-text">+6</h1>
+              <span>Projetos</span>
+            </div>
+            <div className="resultadosCard">
+              <h1 className="gradient-text">+10</h1>
+              <span>Parceiros</span>
+            </div>
+            <div className="resultadosCard">
+              <h1 className="gradient-text">+400.000</h1>
+              <span>Em recursos aplicados</span>
+            </div>
           </div>
         </div>
       </div>

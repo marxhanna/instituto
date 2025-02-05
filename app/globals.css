@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -193,31 +193,31 @@ body {
   height: 100vh;
 }
 
-.npTitle {
-  padding-top: 10%;
+.title {
+  padding-top: 8%;
 }
 
-.npTitle p {
+.title p {
   font-size: 25px;
   font-weight: 300;
   color: #8c52ff;
   margin-bottom: 5px;
 }
 
-.npTitle h1 {
-  font-size: 40px;
+.title h1 {
+  font-size: 45px;
   font-weight: 700;
   color: #323131;
   letter-spacing: -2.5px;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #8c52ff, #d7877b);
+  background: linear-gradient(90deg, #5e17eb, #8e53fc, #ad69c5, #c278a0, #d7877b, #db8a71);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.npContent {
+.content {
   width: 80%;
   margin: 0 auto;
 }
@@ -309,4 +309,221 @@ body {
   font-size: 24px;
   color: #8c52ff;
   cursor: pointer;
+}
+
+.sobreNobis {
+  background-color: white;
+  height: 120vh;
+}
+
+.sobreNosCards {
+  margin-top: -4%;
+}
+
+.parceiros {
+  background-color: #59349e;
+  padding-top: 1%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+}
+
+@keyframes slideLoop {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.parceiros img {
+  animation: slideLoop 20s linear infinite;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.playlist {
+  background-color: #f2f1f6;
+  height: 130vh;
+}
+
+.playlistContainer {
+  margin-top: 4%;
+}
+
+.mvv {
+  background-color: white;
+  height: 120vh;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.mvvContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.mvvCard {
+  background-color: #f2f1f6;
+  width: 400px;
+  height: 650px;
+  text-align: center;
+  border-radius: 50px;
+  padding: 3%;
+  color: #504964;
+  margin-right: 2%;
+  text-align: justify;
+}
+
+.mvvCard h1 {
+  font-size: 35px;
+  font-weight: 700;
+  letter-spacing: -1.2px;
+  text-align: center;
+}
+
+.mvvCard span {
+  font-size: 17px;
+  font-weight: 400;
+  margin-top: 5%;
+  color: #7a7099;
+}
+
+.mvvCard img {
+  margin: 0 auto;
+  width: 50%;
+  margin-bottom: 10%;
+}
+
+.mvvCard {
+  transition: all 0.3s ease-in-out;
+}
+
+.mvvCard:hover {
+  transform: scale(1.1);
+}
+
+.mvvCardContent {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.mvvCard:hover .dim {
+  opacity: 0;
+}
+
+.mvvCard:hover .lit {
+  opacity: 1;
+}
+
+.meio {
+  height: 700px;
+}
+
+.meio .dim {
+  display: none;
+}
+
+.meio .lit {
+  display: block;
+}
+
+.mvvCardContent ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.mvvCardContent li {
+  display: list-item;
+}
+
+.sobre {
+  background-color: white;
+  height: 95vh;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+  padding: 5%;
+}
+
+.sectionContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.text {
+  width: 70%;
+  margin-right: 15%;
+}
+
+.text span {
+  text-align: justify;
+  font-size: 20px;
+  color: #7a7099;
+}
+
+.data {
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.data h1 {
+  font-size: 35px;
+  font-weight: 700;
+  color: #504964;
+  margin-bottom: -1%;
+}
+
+.sectionContent img {
+  height: 70vh;
+}
+
+.equipe {
+  padding: 10% 0 0 10%;
+  background-color: #f2f1f6;
+  height: 120vh;
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.carousel {
+  margin-right: 10%;
+}
+
+.resultados {
+  padding: 5%;
+  background-color: #f2f1f6;
+  height: 80vh;
+  box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.resultadosContent {
+  text-align: center;
+}
+
+.resultadosContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  margin-top: 5%;
+}
+
+.resultadosCard h1 {
+  font-family: "Montserrat", serif;
+  font-size: 60px;
+  font-weight: 900;
+  margin-bottom: 2%;
+}
+
+.resultadosCard span {
+  font-size: 22px;
+  font-weight: 600;
+  color: #323131;
 }
