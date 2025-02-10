@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Carousel } from "antd";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import Link from "next/link";
 import 'antd/dist/reset.css';
 import carrossel1 from '../app/img/carrossel1.png';
 import carrossel2 from '../app/img/carrossel2.png';
@@ -44,6 +44,32 @@ const HomePage = () => {
     visao: "#c278a0",
     valores: "#db8a71",
   };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return; // Garante que só execute no cliente
+
+    const handleScroll = () => {
+      const header = document.getElementById("header") as HTMLElement | null;
+      const section1 = document.getElementById("section1") as HTMLElement | null;
+
+      if (!header || !section1) return;
+
+      const section1Bottom = section1.offsetTop + section1.offsetHeight;
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      if (scrollY >= section1Bottom) {
+        header.classList.add("solid");
+        header.classList.remove("transparent");
+      } else {
+        header.classList.add("transparent");
+        header.classList.remove("solid");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll); // Cleanup
+  }, []);
+  
   
   useEffect(() => {
     const options = { method: 'GET', headers: { 'User-Agent': 'insomnia/10.3.0' } };
@@ -70,9 +96,9 @@ const HomePage = () => {
         <div className='navInfo'>
         <nav>
           <ul>
-            <li style={{ marginLeft: '-55%' }}><a href="#section1">Sobre</a></li>
-            <li style={{ marginLeft: '20%' }}><a href="#section2">Projetos</a></li>
-            <li style={{ marginLeft: '20%' }}><a href="#section3">Nobis</a></li>
+            <li style={{ marginLeft: '-55%' }}><a href="#sobre">Sobre</a></li>
+            <li style={{ marginLeft: '20%' }}><Link href="/projetos">Projetos</Link></li>
+            <li style={{ marginLeft: '20%' }}><Link href="#nobis">Nobis</Link></li>
           </ul>
         </nav>
         <a href="conectividade-em-servicos/index.html" className="button-header"><span className="gradient-text">Contato</span></a>
@@ -84,7 +110,7 @@ const HomePage = () => {
         </div>
       </div>
     </header>
-    <div style={{ position: 'relative', height: '100vh', width: '100vw', overflow: 'hidden' }}>
+    <div style={{ position: 'relative', height: '100vh', width: '100vw', overflow: 'hidden' }} id="section1">
       <Carousel
         autoplay
         effect="fade"
@@ -265,10 +291,10 @@ const HomePage = () => {
     <div className="equipe">
       <div className="content">
         <div className="sectionContent"> 
-          <div className="carousel">
+          <div className="carousel" style={{ width: "30%" }}>
             <TeamCarousel /> 
           </div>
-          <div className="text">
+          <div className="text" style={{ width: "100%" }}>
             <div className='title'>
               <p>As faces por trás <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>----------------</a></p>
               <h1>Quem somos <a className="gradient-text">nós?</a></h1>
@@ -281,7 +307,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-    <div className="resultados">
+    {/* <div className="resultados">
       <div className="content">
         <div className="resultadosContent">
           <div className="title">
@@ -307,7 +333,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
     </>
   );
 };

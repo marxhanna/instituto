@@ -46,6 +46,7 @@ body {
   background-color: rgba(0, 0, 0, 0.85);
   width: 100%;
   margin: 0 auto;
+  padding: 1% 5% 0% 5%;
 }
 
 .floating-header .logo-header img {
@@ -190,7 +191,7 @@ body {
 .nossosProjetos {
   font-family: "Poppins";
   background-color: #f2f1f6;
-  height: 100vh;
+  height: 120vh;
 }
 
 .title {
@@ -349,7 +350,7 @@ body {
 
 .playlist {
   background-color: #f2f1f6;
-  height: 130vh;
+  height: 160vh;
 }
 
 .playlistContainer {
@@ -358,7 +359,7 @@ body {
 
 .mvv {
   background-color: white;
-  height: 120vh;
+  height: 150vh;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
