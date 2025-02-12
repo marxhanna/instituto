@@ -30,7 +30,7 @@ const HomePage = () => {
   
   useEffect(() => {
     const options = { method: 'GET', headers: { 'User-Agent': 'insomnia/10.3.0' } };
-    fetch('http://dev.nobisapp.com.br/institute/', options)
+    fetch('https://dev.nobisapp.com.br/institute/', options)
       .then(response => response.json())
       .then(data => {
         const formattedData = data.map((item, index) => ({
