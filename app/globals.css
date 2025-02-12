@@ -304,6 +304,7 @@ body {
 }
 
 .card-btn {
+  padding: 2% 0;
   margin: 10px 0 20px;
   border: none;
   background: none;
@@ -317,6 +318,12 @@ body {
   letter-spacing: 1.1px;
   width: 60%;
   text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: white;
+  color: black;
 }
 
 .arrow {
@@ -343,7 +350,6 @@ body {
   align-items: center;
   overflow: hidden;
   position: relative;
-  width: 100vw;
 }
 
 @keyframes slideLoop {

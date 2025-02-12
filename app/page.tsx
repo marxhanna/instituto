@@ -24,6 +24,7 @@ import visaoL from '../app/img/visaoLit.png';
 import valoresL from '../app/img/valoresLit.png';
 import sobre from '../app/img/9.png';
 import TeamCarousel from '../app/components/team';
+import { motion } from "framer-motion";
 
 const contentStyle = {
   height: '100vh',
@@ -35,7 +36,20 @@ const contentStyle = {
   backgroundPosition: 'center',
 };
 
-const HomePage = () => {
+const FadeInSection = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }} // Começa invisível e deslocado para baixo
+      whileInView={{ opacity: 1, y: 0 }} // Aparece e sobe para o lugar correto
+      transition={{ duration: 0.8 }} // Tempo da animação
+      viewport={{ once: true }} // Só anima uma vez
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+export default function HomePage() {
   const [cardData, setCardData] = useState([]);
   const projectImages = [empreendedorismo, etnodesenvolvimento, afroempreendedorismo, techgirls];
   const [active, setActive] = useState("visao");
@@ -117,7 +131,7 @@ const HomePage = () => {
         </div>
       </div>
     </header>
-    <div style={{ position: 'relative', height: '100vh', width: '100vw', overflow: 'hidden' }} id="section1">
+    <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }} id="section1">
       <Carousel
         autoplay
         effect="fade"
@@ -148,6 +162,7 @@ const HomePage = () => {
         <a className="initBtn" href="#sobre">O que fazemos?</a>
       </div>
     </div>
+    <FadeInSection>
     <div className='nossosProjetos'>
       <div className='content'>
         <div className='title'>
@@ -173,26 +188,30 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-    <div className='sobreNobis' id="sobre">
-      <div className="content">
-        <div className='title'>
-          <p>Sobre Nós <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>-----------------------</a></p>
-          <h1>Conheça o <span className="gradient-text">Instituto.</span></h1>
-        </div>
-        <div className="sobreNosCards">
-        <a 
-                            href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            
-                            >
-            <img src={sobreNos.src} alt="Nobis" /></a>
+    </FadeInSection>
+    <FadeInSection>
+      <div className='sobreNobis' id="sobre">
+        <div className="content">
+          <div className='title'>
+            <p>Sobre Nós <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>-----------------------</a></p>
+            <h1>Conheça o <span className="gradient-text">Instituto.</span></h1>
+          </div>
+          <div className="sobreNosCards">
+          <a 
+                              href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              
+                              >
+              <img src={sobreNos.src} alt="Nobis" /></a>
+          </div>
         </div>
       </div>
-    </div>
+    </FadeInSection>
     <div className="parceiros">
       <img src={parceiros.src} />
     </div>
+    <FadeInSection>
     <div className="playlist">
       <div className="content">
         <div className="title">
@@ -204,6 +223,8 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+    </FadeInSection>
+    <FadeInSection>
     <div className="mvv" id="mvv">
       <div className="content">
         <div className="title">
@@ -266,6 +287,8 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+    </FadeInSection>
+    <FadeInSection>
     <div className="sobre" id="nobis">
       <div className="content">
         <div className="sectionContent">
@@ -299,6 +322,8 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+    </FadeInSection>
+    <FadeInSection>
     <div className="equipe">
       <div className="content">
         <div className="sectionContent"> 
@@ -318,6 +343,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+    </FadeInSection>
     {/* <div className="resultados">
       <div className="content">
         <div className="resultadosContent">
@@ -391,5 +417,3 @@ const HomePage = () => {
     </>
   );
 };
-
-export default HomePage;

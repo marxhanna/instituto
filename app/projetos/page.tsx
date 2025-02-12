@@ -8,11 +8,25 @@ import img from '../../app/img/logos/nobis_roxo.png';
 import afroempreendedorismo from '../../app/img/3.png'
 import etnodesenvolvimento from '../../app/img/etnodesenvolvimento.jpg'
 import empreendedorismo from '../../app/img/empreendedorismo.jpg'
+import { motion } from "framer-motion";
 
 const HomePage = () => {
   const [cardData, setCardData] = useState([]);
   const [filteredTags, setFilteredTags] = useState([]);
   const projectImages = [empreendedorismo, etnodesenvolvimento, afroempreendedorismo];
+
+  const FadeInSection = ({ children }: { children: React.ReactNode }) => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 50 }} // Começa invisível e deslocado para baixo
+        whileInView={{ opacity: 1, y: 0 }} // Aparece e sobe para o lugar correto
+        transition={{ duration: 0.8 }} // Tempo da animação
+        viewport={{ once: true }} // Só anima uma vez
+      >
+        {children}
+      </motion.div>
+    );
+  };
   
   useEffect(() => {
     const options = { method: 'GET', headers: { 'User-Agent': 'insomnia/10.3.0' } };
@@ -103,7 +117,7 @@ const HomePage = () => {
           </div>
         </div>
       </header>
-      
+      <FadeInSection>
       <div className="projects" id="section1">
         <div className="content">
           <div className='title'>
@@ -113,6 +127,7 @@ const HomePage = () => {
           </div>
         </div>
         </div>
+
           
           <div className="filterTags">
             <button 
@@ -150,6 +165,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+          </FadeInSection>
           <div className="footer">
           <div className="content">
             <div className="footerContent">

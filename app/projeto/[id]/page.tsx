@@ -32,6 +32,7 @@ import etnodesenvolvimento from '../../img/etnodesenvolvimento.jpg'
 import empreendedorismo from '../../img/empreendedorismo.jpg'
 import projectBG from '../../img/projectBG.png'
 import { LoadingOutlined } from '@ant-design/icons';
+import { motion } from "framer-motion";
 
 const ProjetoPage = () => {
   const { id } = useParams(); // Pegando o ID da URL corretamente
@@ -68,6 +69,19 @@ const ProjetoPage = () => {
     "3": carrossel3,
     "4": carrossel2,
   }; 
+
+  const FadeInSection = ({ children }: { children: React.ReactNode }) => {
+      return (
+        <motion.div
+          initial={{ opacity: 0, y: 50 }} // Começa invisível e deslocado para baixo
+          whileInView={{ opacity: 1, y: 0 }} // Aparece e sobe para o lugar correto
+          transition={{ duration: 0.8 }} // Tempo da animação
+          viewport={{ once: true }} // Só anima uma vez
+        >
+          {children}
+        </motion.div>
+      );
+    };
 
   const DonationProgressBar = ({ doacaoAtual, meta }) => {
     const percent = (doacaoAtual / meta) * 100;
@@ -180,7 +194,7 @@ const ProjetoPage = () => {
       </div>
     </header>
 
-    <div style={{ position: 'relative', height: '100vh', width: '100vw', overflow: 'hidden' }} id="section1">
+    <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }} id="section1">
       <img 
         className="projetoBanner" 
         src={bannerImage.src} 
@@ -212,6 +226,7 @@ const ProjetoPage = () => {
 
       {project && (
         <>
+        <FadeInSection>
           <div className="projectInfo">
             <div className="content">
               <div className="sectionContent">
@@ -245,7 +260,9 @@ const ProjetoPage = () => {
               </div>
             </div>
           </div>
-
+          </FadeInSection>
+          
+          <FadeInSection>
           <div className="sobreProjeto">
             <h1 className="projetoSectionTitle">Investimento</h1>
             <div className="content">
@@ -263,7 +280,9 @@ const ProjetoPage = () => {
               </div>
             </div>
           </div>
-
+          </FadeInSection>
+          
+          <FadeInSection>
           <div className="meta">
             <div className="content">
               <div className="metaInfo">
@@ -275,6 +294,7 @@ const ProjetoPage = () => {
               </div>
             </div>
           </div>
+          </FadeInSection>
         </>
       )}
       <div className="footer">
