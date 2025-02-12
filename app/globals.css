@@ -15,10 +15,15 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Poppins", serif;
+  scroll-behavior: smooth;
 }
 
 .floating-header {
@@ -44,6 +49,13 @@ body {
 
 .floating-header.solid {
   background-color: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1% 5% 0% 5%;
+}
+
+.floating-header.solidWhite {
+  background-color: rgb(255, 255, 255, 0.85);
   width: 100%;
   margin: 0 auto;
   padding: 1% 5% 0% 5%;
@@ -225,9 +237,9 @@ body {
 
 .slider-container {
   width: 100%;
-  max-width: 900px;
   margin: auto;
-  padding: 20px;
+  display: flex;
+  overflow-x: auto;
 }
 
 .card {
@@ -237,6 +249,7 @@ body {
   height: 400px;
   margin: 5% auto;
   font-family: "Poppins";
+  margin-right: 5%;
 }
 
 .card-img {
@@ -292,7 +305,6 @@ body {
 
 .card-btn {
   margin: 10px 0 20px;
-  padding: 0 1px;
   border: none;
   background: none;
   border: 2px solid white;
@@ -304,6 +316,7 @@ body {
   font-family: "Poppins";
   letter-spacing: 1.1px;
   width: 60%;
+  text-align: center;
 }
 
 .arrow {
@@ -527,4 +540,338 @@ body {
   font-size: 22px;
   font-weight: 600;
   color: #323131;
+}
+
+/* PAGINA DE PROJETO */
+
+.projectTitle {
+  font-size: 74px;
+  font-weight: 600;
+}
+
+.projetoBanner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.projectInfo {
+  padding-top: 5%;
+  height: 95vh;
+}
+
+.text {
+  width: 50%;
+  margin-right: 10%;
+}
+
+.ods {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5%;
+  align-items: center;
+  margin: 5% 0;
+}
+
+.ods-item img {
+  width: 100px;
+  height: 100px;
+}
+
+.projetoSectionTitle {
+  letter-spacing: -1.7px;
+  color: #323131;
+  font-size: 37px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.projectImg {
+  width: 500px;
+  height: 100px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.sobreProjeto {
+  height: 90vh;
+}
+
+.projetoInfo {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5%;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5%;
+  color: white;
+  text-align: center;
+  height: 480px;
+}
+
+.projetoInfo a {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5%;
+}
+
+.projetoInfo span {
+  font-size: 25px;
+  font-weight: 400;
+  max-width: 400px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.meta {
+  height: 50vh;
+}
+
+.btnDoacao {
+  font-size: 20px;
+  background: none;
+  color: #323131;
+  border: 1px solid transparent; /* Define uma borda transparente */
+  padding: 10px 20px; /* Ajuste o preenchimento para o botão */
+  background-clip: padding-box; /* Evita que o gradiente entre na área do conteúdo */
+  border-image: linear-gradient(90deg, #5e17eb, #8e53fc, #ad69c5, #c278a0, #d7877b, #db8a71) 1;
+  margin-top: 3%;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+
+.btnDoacao::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(90deg, #8c52ff, #d7877b);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.btnDoacao:hover {
+  color: white;
+  border: 1px solid transparent;
+}
+
+.btnDoacao:hover::before {
+  opacity: 1;
+}
+
+.btnDoacao::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* Ocupa toda a área do botão */
+  padding: 2px; /* Largura da borda */
+  background: linear-gradient(90deg, #8c52ff, #d7877b);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 0.4s ease-in-out;
+  opacity: 0;
+}
+
+.btnDoacao:hover::after {
+  opacity: 1;
+}
+
+
+/* PAGINA DOS PROJETOS */
+
+.projects {
+  padding-top: 5%;
+  height: 40vh;
+}
+
+.filterTags {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  background-color: #8c52ff;
+  padding: 2% 5%;
+  margin-top: 5%;
+}
+
+.filter-tag {
+  margin: 0 10px;
+  cursor: pointer;
+  color: white;
+  border: dashed 1px white;
+  padding: 8px 15px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-tag:hover {
+  background-color: white;
+  color: #8c52ff;
+}
+
+.cardsProjetos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-cards {
+  display: flex;
+  height: 100vh;
+  padding: 2% 0;
+}
+
+.project-card {
+  width: 200px;
+}
+
+/* PAGINA DE TRANSPARENCIA */
+
+.transparenciaDocumentos {
+  margin-top: 3%;
+  background-color: #e4dee8;
+  height: 30vh;
+  width: 100%;
+  display: grid;
+}
+
+.documentos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.documentContent {
+  display: flex;
+  padding-left: 15%;
+  flex-grow: 1
+}
+
+.documentCard {
+  width: 450px;
+  height: 150px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.documentCard h2 {
+  margin-top: 10%;
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: -1.7px;
+}
+
+.documentCard p {
+  font-size: 23px;
+  font-weight: 300;
+  letter-spacing: -1.3px;
+}
+
+.downloadIcon {
+  background-color: #8c52ff;
+  width: 65px;
+  height: 65px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 65px;
+  color: white;
+  margin-right: 10%;
+}
+
+.documentContent {
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  background-color: #f8f8f8; /* Cor de fundo opcional */
+  padding: 55px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vh;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer img {
+  height: 120px; /* Ajustei para não ocupar muito espaço */
+}
+
+.footerInfo {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px; /* Adiciona espaçamento entre os blocos */
+}
+
+.footerInfo div {
+  min-width: 200px;
+}
+
+.footerInfo h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footerInfo a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.footerInfo a:hover {
+  text-decoration: underline;
+}
+
+.footerInfo p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #5e17eb, #8e53fc, #ad69c5, #c278a0, #d7877b, #db8a71);
+  background-size: 300% 100%;
+  color: white !important;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background-position 0.5s ease-in-out;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.whatsapp-button:hover {
+  color: white;
+  text-decoration: none !important;
+  background-position: -100% 0;
 }

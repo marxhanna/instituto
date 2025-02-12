@@ -3,7 +3,7 @@ import { Carousel } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Image, { StaticImageData } from 'next/image'; // Importe StaticImageData e Image
 
-import claudia from '../img/time/Claudia.jpg';
+import claudia from '../img/time/Claudia.png';
 import marina from '../img/time/Marina.png';
 import brenno from '../img/time/Brenno.png';
 import nikkie from '../img/time/Nicole.png';

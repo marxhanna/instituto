@@ -9,6 +9,7 @@ import carrossel2 from '../app/img/carrossel2.png';
 import carrossel3 from '../app/img/carrossel3.png';
 import carrossel4 from '../app/img/carrossel4.png';
 import img from '../app/img/logos/nobis_principal_branca.png';
+import imgFooter from '../app/img/logos/nobis_roxo.png';
 import afroempreendedorismo from '../app/img/3.png'
 import etnodesenvolvimento from '../app/img/etnodesenvolvimento.jpg'
 import empreendedorismo from '../app/img/empreendedorismo.jpg'
@@ -77,6 +78,7 @@ const HomePage = () => {
       .then(response => response.json())
       .then(data => {
         const formattedData = data.map((item, index) => ({
+          id: item.projectData.id,
           title: item.projectData.title,
           description: item.projectData.description,
           img: projectImages[index % projectImages.length]
@@ -91,17 +93,22 @@ const HomePage = () => {
     <header className="floating-header transparent" id="header">
       <div className="container-header">
         <div className="logo-header" id="logoHeader">
-          <a href="#section1"><img src={img.src} style={{ height: "80px" }} /></a>
+          <Link href={"/"}><img src={img.src} style={{ height: "80px" }} /></Link>
         </div>
         <div className='navInfo'>
         <nav>
           <ul>
-            <li style={{ marginLeft: '-55%' }}><a href="#sobre">Sobre</a></li>
+            <li style={{ marginLeft: '-55%' }}><a href="#mvv">Sobre</a></li>
             <li style={{ marginLeft: '20%' }}><Link href="/projetos">Projetos</Link></li>
             <li style={{ marginLeft: '20%' }}><Link href="#nobis">Nobis</Link></li>
           </ul>
         </nav>
-        <a href="conectividade-em-servicos/index.html" className="button-header"><span className="gradient-text">Contato</span></a>
+        <a 
+                            href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="button-header"
+                            ><span className="gradient-text">Contato</span></a>
         </div>
         <div className="menu-toggle" id="menu-toggle">
           <span></span>
@@ -138,7 +145,7 @@ const HomePage = () => {
           <a style={{ fontWeight: '300', fontSize: "50px" }}>& CROWDFUNDING</a> <br />
           IMPACTO DE A-Z <br />
         </p>
-        <button className="initBtn">O que fazemos?</button>
+        <a className="initBtn" href="#sobre">O que fazemos?</a>
       </div>
     </div>
     <div className='nossosProjetos'>
@@ -150,32 +157,36 @@ const HomePage = () => {
         </div>
         <div className="slider-container">
           <div className="slider-container">
-          <Carousel dots={false} arrows slidesToShow={3}>
               {cardData.map((card, index) => (
-                <div key={index} className="card">
+                <div key={index} className="card" style={{ width: "400px", height: "600px" }}>
                   <img src={card.img.src} alt={card.title} className="card-img" />
                   <div className="card-overlay">
                     <div className="overlay-content">
                       <h3>{card.title}</h3>
                       <p>{card.description}</p>
-                      <button className="card-btn">saiba mais</button>
+                      <Link href={`/projeto/${card.id}`} className="card-btn">saiba mais</Link>
                     </div>
                   </div>
                 </div>
               ))}
-            </Carousel>
           </div>
         </div>
       </div>
     </div>
-    <div className='sobreNobis'>
+    <div className='sobreNobis' id="sobre">
       <div className="content">
         <div className='title'>
           <p>Sobre Nós <a style={{ letterSpacing: "-4px", marginLeft: "1%" }}>-----------------------</a></p>
           <h1>Conheça o <span className="gradient-text">Instituto.</span></h1>
         </div>
         <div className="sobreNosCards">
-          <a><img src={sobreNos.src} alt="Nobis" /></a>
+        <a 
+                            href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            
+                            >
+            <img src={sobreNos.src} alt="Nobis" /></a>
         </div>
       </div>
     </div>
@@ -193,7 +204,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-    <div className="mvv">
+    <div className="mvv" id="mvv">
       <div className="content">
         <div className="title">
           <p>
@@ -255,7 +266,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-    <div className="sobre">
+    <div className="sobre" id="nobis">
       <div className="content">
         <div className="sectionContent">
           <div className="text">
@@ -334,6 +345,49 @@ const HomePage = () => {
         </div>
       </div>
     </div> */}
+    <div className="footer">
+          <div className="content">
+            <div className="footerContent">
+                <Link href={'/'}><img src={imgFooter.src} /></Link>
+              <div className="footerInfo">
+                <div>
+                    <h4>Soluções</h4>
+                    <a href="https://esg.nobisapp.com.br/paginas/impacto/" target="_blank">Impacto com Monitoramento</a>
+                    <a href="https://esg.nobisapp.com.br/paginas/comunicacao-branding/" target="_blank">Comunicação e Branding em ESG</a>
+                    <a href="https://esg.nobisapp.com.br/paginas/selo-materialidade/" target="_blank">Selo de Materialidade</a>
+                    <a href="https://esg.nobisapp.com.br/paginas/handson-esg/" target="_blank">ESG Hands On</a>
+                    <a href="https://esg.nobisapp.com.br/paginas/rota-esg/" target="_blank">Rota ESG</a>
+                    <a href="https://esg.nobisapp.com.br/paginas/quiz-do-consumidor/" target="_blank">Quiz do Consumidor</a>
+                </div>
+                <div>
+                    <h4>Sobre Nós</h4>
+                    <a href="https://esg.nobisapp.com.br/paginas/sobre/" target="_blank">A Nobis</a>
+                    <a href="https://esg.nobisapp.com.br/paginas/politica-de-privacidade/" target="_blank">Política de Privacidade</a>
+                    <a href="https://agentes.nobisapp.com.br/" target="_blank">Seja um Parceiro</a>
+                    <a href="https://esg.nobisapp.com.br/paginas/imprensa/" target="_blank">Comunicação & Imprensa</a>
+                    <Link href={"/transparencia"}>Transparência</Link>
+                </div>
+                <div>
+                    <p>
+                        Rua Presidente Faria, 51 <br/>
+                        Sala 502, Edifício Farid Surigi <br/>
+                        Centro, Curitiba - PR <br/>
+                        <br/>
+                        <a 
+                            href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="whatsapp-button"
+                            >
+                            Fale Conosco
+                        </a>
+
+                    </p>
+                </div>
+               </div>
+            </div>
+          </div>
+       </div>
     </>
   );
 };
