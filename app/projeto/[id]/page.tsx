@@ -83,7 +83,7 @@ const ProjetoPage = () => {
       );
     };
 
-  const DonationProgressBar = ({ doacaoAtual, meta }) => {
+  const DonationProgressBar = ({ doacaoAtual, meta }: { doacaoAtual: number, meta: number }) => {
     const percent = (doacaoAtual / meta) * 100;
   
     return (
@@ -104,7 +104,7 @@ const ProjetoPage = () => {
     );
   };
 
-  const bannerImage = projectBannersData[parseInt(id)] || carrossel1;
+  const bannerImage = projectBannersData[parseInt(id as any)] || carrossel1;
 
   useEffect(() => {
       if (typeof window === "undefined") return;
