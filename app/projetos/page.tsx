@@ -10,9 +10,16 @@ import etnodesenvolvimento from '../../app/img/etnodesenvolvimento.jpg'
 import empreendedorismo from '../../app/img/empreendedorismo.jpg'
 import { motion } from "framer-motion";
 
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  img: any;
+}
+
 const HomePage = () => {
   const [cardData, setCardData] = useState([]);
-  const [filteredTags, setFilteredTags] = useState([]);
+  const [filteredTags, setFilteredTags] = useState<string[]>([]);
   const projectImages = [empreendedorismo, etnodesenvolvimento, afroempreendedorismo];
 
   const FadeInSection = ({ children }: { children: React.ReactNode }) => {
@@ -33,7 +40,7 @@ const HomePage = () => {
     fetch('https://dev.nobisapp.com.br/institute/', options)
       .then(response => response.json())
       .then(data => {
-        const formattedData = data.map((item, index) => ({
+        const formattedData = data.map((item: { projectData: { id: any; title: any; description: any; tags: any[]; }; }, index: number) => ({
           id: item.projectData.id,
           title: item.projectData.title,
           description: item.projectData.description,
@@ -45,8 +52,8 @@ const HomePage = () => {
       .catch(err => console.error(err));
   }, []);
 
-  const handleTagClick = (tag) => {
-    setFilteredTags((prevTags) => {
+  const handleTagClick = (tag: any) => {
+    setFilteredTags((prevTags: string[]) => {
       if (prevTags.includes(tag)) {
         return prevTags.filter((t) => t !== tag);
       } else {
@@ -59,11 +66,11 @@ const HomePage = () => {
     setFilteredTags([]);
   };
 
-  const filteredData = cardData.filter(project => 
-    filteredTags.length === 0 || project.tags.some(tag => filteredTags.includes(tag))
+  const filteredData: Project[] = cardData.filter((project: any) => 
+    filteredTags.length === 0 || project.tags.some((tag: string) => filteredTags.includes(tag))
   );
 
-  const allTags = [...new Set(cardData.flatMap(project => project.tags))];
+  const allTags = [...new Set(cardData.flatMap((project: any) => project.tags))];
 
     useEffect(() => {
       if (typeof window === "undefined") return; // Garante que só execute no cliente

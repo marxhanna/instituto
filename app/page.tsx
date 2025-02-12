@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import { Carousel } from "antd";
 import Link from "next/link";
 import 'antd/dist/reset.css';
@@ -26,7 +26,7 @@ import sobre from '../app/img/9.png';
 import TeamCarousel from '../app/components/team';
 import { motion } from "framer-motion";
 
-const contentStyle = {
+const contentStyle:  CSSProperties = {
   height: '100vh',
   width: '100vw',
   color: '#fff',
@@ -50,7 +50,7 @@ const FadeInSection = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default function HomePage() {
-  const [cardData, setCardData] = useState([]);
+  const [cardData, setCardData] = useState<any[]>([]);
   const projectImages = [empreendedorismo, etnodesenvolvimento, afroempreendedorismo, techgirls];
   const [active, setActive] = useState("visao");
 
@@ -91,7 +91,7 @@ export default function HomePage() {
     fetch('https://dev.nobisapp.com.br/institute/', options)
       .then(response => response.json())
       .then(data => {
-        const formattedData = data.map((item, index) => ({
+        const formattedData = data.map((item: { projectData: { id: any; title: any; description: any; }; }, index: number) => ({
           id: item.projectData.id,
           title: item.projectData.title,
           description: item.projectData.description,
@@ -279,7 +279,7 @@ export default function HomePage() {
             >
               <div className={`mvvCardContent ${active === key ? "lit" : "dim"}`}>
                 <img src={active === key ? imgL : imgD} />
-                <h1 style={{ color: active === key ? titleColors[key] : "#504964" }}>{title}</h1>
+                <h1 style={{ color: titleColors[key as keyof typeof titleColors] || "#504964" }}>{title}</h1>
                 <span>{text}</span>
               </div>
             </div>
