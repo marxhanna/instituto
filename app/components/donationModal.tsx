@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { Modal, Input, Select, Button, Form, Divider } from "antd";
 
-const DonationModal = ({ visible, onClose }) => {
-  const [form] = Form.useForm();
-  const [method, setMethod] = useState("pix");
-  const [documentType, setDocumentType] = useState("cpf");
+interface DonationModalProps {
+  visible: boolean;
+  onClose: () => void;
+}
 
-  const handleSubmit = (values) => {
+const DonationModal: React.FC<DonationModalProps> = ({ visible, onClose }) => {
+  const [form] = Form.useForm();
+  const [method, setMethod] = useState<"pix" | "cartao">("pix");
+  const [documentType, setDocumentType] = useState<"cpf" | "cnpj">("cpf");
+
+  const handleSubmit = (values: any) => {
     console.log("Doação enviada:", values);
     onClose();
   };
@@ -14,7 +19,7 @@ const DonationModal = ({ visible, onClose }) => {
   return (
     <Modal
       title="Faça uma Doação"
-      visible={visible}
+      open={visible}  // Aqui, o Ant Design 4 usa "open" em vez de "visible"
       onCancel={onClose}
       footer={null}
     >
@@ -28,14 +33,14 @@ const DonationModal = ({ visible, onClose }) => {
         </Form.Item>
 
         <Form.Item label="Método de Pagamento" name="metodo" initialValue={method}>
-          <Select onChange={(value) => setMethod(value)}>
+          <Select onChange={(value) => setMethod(value as "pix" | "cartao")}>
             <Select.Option value="pix">PIX</Select.Option>
             <Select.Option value="cartao">Cartão de Crédito</Select.Option>
           </Select>
         </Form.Item>
 
         <Form.Item label="Documento" name="documento" initialValue={documentType}>
-          <Select onChange={(value) => setDocumentType(value)}>
+          <Select onChange={(value) => setDocumentType(value as "cpf" | "cnpj")}>
             <Select.Option value="cpf">CPF</Select.Option>
             <Select.Option value="cnpj">CNPJ</Select.Option>
           </Select>
