@@ -133,10 +133,8 @@ const HomePage = () => {
             transformam vidas de <span className="gradient-text">verdade.</span></h1>
           </div>
         </div>
-        </div>
-
-          
-          <div className="filterTags">
+      </div>
+      <div className="filterTags">
             <button 
               onClick={handleShowAll} 
               className={`filter-tag ${filteredTags.length === 0 ? 'active' : ''}`}

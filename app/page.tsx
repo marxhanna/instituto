@@ -118,16 +118,11 @@ export default function HomePage() {
           </ul>
         </nav>
         <a 
-                            href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="button-header"
-                            ><span className="gradient-text">Contato</span></a>
-        </div>
-        <div className="menu-toggle" id="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
+          href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="button-header"
+          ><span className="gradient-text">Contato</span></a>
         </div>
       </div>
     </header>
@@ -198,11 +193,10 @@ export default function HomePage() {
           </div>
           <div className="sobreNosCards">
           <a 
-                              href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              
-                              >
+            href="https://wa.me/5541992286680?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços." 
+            target="_blank" 
+            rel="noopener noreferrer"
+            >
               <img src={sobreNos.src} alt="Nobis" /></a>
           </div>
         </div>
@@ -279,7 +273,9 @@ export default function HomePage() {
             >
               <div className={`mvvCardContent ${active === key ? "lit" : "dim"}`}>
                 <img src={active === key ? imgL : imgD} />
-                <h1 style={{ color: titleColors[key as keyof typeof titleColors] || "#504964" }}>{title}</h1>
+                <h1 style={{ color: active === key ? titleColors[key as keyof typeof titleColors] : "#504964" }}>
+                  {title}
+                </h1>
                 <span>{text}</span>
               </div>
             </div>
@@ -288,8 +284,8 @@ export default function HomePage() {
       </div>
     </div>
     </FadeInSection>
-    <FadeInSection>
     <div className="sobre" id="nobis">
+    <FadeInSection>
       <div className="content">
         <div className="sectionContent">
           <div className="text">
@@ -321,10 +317,10 @@ export default function HomePage() {
           <img src={sobre.src} />   
         </div>
       </div>
-    </div>
     </FadeInSection>
-    <FadeInSection>
+    </div>
     <div className="equipe">
+    <FadeInSection>
       <div className="content">
         <div className="sectionContent"> 
           <div className="carousel" style={{ width: "30%" }}>
@@ -342,8 +338,8 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </div>
     </FadeInSection>
+    </div>
     {/* <div className="resultados">
       <div className="content">
         <div className="resultadosContent">

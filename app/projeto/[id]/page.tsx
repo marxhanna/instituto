@@ -33,10 +33,15 @@ import empreendedorismo from '../../img/empreendedorismo.jpg'
 import projectBG from '../../img/projectBG.png'
 import { LoadingOutlined } from '@ant-design/icons';
 import { motion } from "framer-motion";
+import DonationModal from "../../components/donationModal";
 
 const ProjetoPage = () => {
   const { id } = useParams(); // Pegando o ID da URL corretamente
   const [project, setProject] = useState<any>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false); // Estado do modal
+
+  const openModal = () => setIsModalVisible(true);
+  const closeModal = () => setIsModalVisible(false);
 
   const odsData: { [key: number]: { image: any; title: string } } = {
     1: { image: ods1, title: "Erradicação da Pobreza" },
@@ -98,7 +103,8 @@ const ProjetoPage = () => {
         <div style={{ marginTop: '10px', textAlign: "center" }}>
           <span style={{ fontSize: "35px" }}><a style={{ fontWeight: "600" }}>R${doacaoAtual.toFixed(0)}</a> de R${meta.toFixed(0)}</span>
           <br/>
-          {/* <button className="btnDoacao">Faça uma doação</button> */}
+          <button className="btnDoacao" onClick={openModal}>Faça uma doação</button>
+          <DonationModal visible={isModalVisible} onClose={closeModal} />
         </div>
       </div>
     );
@@ -216,7 +222,7 @@ const ProjetoPage = () => {
             <a style={{ fontWeight: '300', fontSize: "68px" }}>& CROWDFUNDING</a> <br />
             IMPACTO DE A-Z <br />
           </p>
-          <div style={{ marginTop: "-50px" }}>
+          <div style={{ marginTop: "-50px" }} className="projectTags">
             {project?.tags?.map((tag: any) => (
               <button key={tag.id} className="initBtn">{tag.content}</button>
             ))}

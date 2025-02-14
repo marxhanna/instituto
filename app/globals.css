@@ -828,7 +828,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 50px; /* Adiciona espaçamento entre os blocos */
+  gap: 25px; /* Adiciona espaçamento entre os blocos */
 }
 
 .footerInfo div {
@@ -880,4 +880,257 @@ body {
   color: white;
   text-decoration: none !important;
   background-position: -100% 0;
+}
+
+@media screen and (max-width: 768px) {
+  .logo-header img {
+    display: none;
+  }
+  
+  .frontPageTitle {
+    font-size: 20px;
+  }
+
+  .navInfo {
+    font-size: 10px;
+  }
+
+  ul {
+    margin: -10% !important;
+  }
+
+  .button-header {
+    font-size: 10px;
+    padding: 2%;
+  }
+
+  .frontPageTitle a {
+    font-size: 18.5px !important;
+  }
+
+  .initBtn {
+    font-size: 13.5px;
+  }
+
+  .parceiros {
+    height: 6vh;
+  }
+
+  .title p {
+    font-size: 16px;
+  }
+
+  .title h1 {
+    font-size: 30px;
+  }
+
+  .nossosProjetos {
+    height: 130vh;
+  }
+
+  .slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80% !important;
+    height: 250px !important;
+    margin: 5% auto;
+  }
+
+  .sobreNobis {
+    height: 32vh;
+  }
+
+  .playlist {
+    height: 40vh;
+  }
+
+  .playlistContainer iframe {
+    height: 200px !important;
+  }
+
+  .mvv {
+    height: 210vh;
+  }
+
+  .mvvContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mvvCard {
+    width: 90%;
+    height: 500px;
+    margin: 5% auto;
+    padding: 15%;
+  }
+
+  .mvvCard h1 {
+    font-size: 20px;
+    margin-bottom: 20% !important;
+  }
+
+  .mvvCard span {
+    font-size: 14px;
+  }
+
+  .sobre {
+    height: 50vh;
+  }
+
+  .sectionContent {
+    width: 100% !important;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .description span {
+    font-size: 14px;
+    text-align: justify !important;
+    display: block;
+  }
+
+  .data {
+    text-align: center;
+  }
+
+  .dataItem h1 {
+    font-size: 20px;
+  }
+
+  .dataItem span {
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .sectionContent img {
+    display: none;
+  }
+
+  .text {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .equipe .text span {
+    font-size: 14px;
+    text-align: justify !important;
+    display: block;
+  }
+
+  .equipe {
+    padding-top: 10% !important;
+    height: 60vh;
+    padding: 0;
+  }
+
+  .footer {
+    height: 85vh;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerInfo a, h4 {
+    font-size: 14px !important;
+  }
+
+  .footerInfo p {
+    font-size: 14px !important;
+  }
+
+  .footerContent img {
+    margin-bottom: 50%;
+  }
+
+  .projects {
+    padding-top: 20%;
+    height: 33vh;
+  }
+
+  .filterTags {
+    padding-left: 60%;
+    font-size: 10px;
+    overflow: scroll;
+  }
+
+  .filter-tag {
+    margin: 0 5px;
+  }
+
+  .projects-cards {
+    height: 115vh;
+  }
+
+  .cardsProjetos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .projectTitle {
+    font-size: 28.5px !important;
+  }
+
+  .projectTitle a {
+    font-size: 26.5px !important;
+  }
+
+  .projectTags {
+    margin-top: 0 !important;
+  }
+
+  .projectInfo {
+    height: 130vh;
+  }
+
+  .projectInfo .sectionContent img {
+    display: block;
+  }
+
+  .projectInfo .sectionContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ods img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .sobreProjeto {
+    height: 105vh;
+  }
+
+  .projetoInfo {
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .transparenciaDocumentos {
+    height: 70vh;
+  }
+
+  .documentos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .documentCard {
+    width: 80vw;
+  }
+
+  .documentContent h2, p {
+    font-size: 18px !important;
+
+  }
 }

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Carousel } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-import Image, { StaticImageData } from 'next/image'; // Importe StaticImageData e Image
+import Image, { StaticImageData } from 'next/image';
 
 import claudia from '../img/time/Claudia.png';
 import marina from '../img/time/Marina.png';
@@ -12,7 +11,7 @@ import silvano from '../img/time/Silvano.png';
 interface TeamMember {
   name: string;
   job: string;
-  image: StaticImageData; // Modifique para StaticImageData
+  image: StaticImageData;
 }
 
 const teamMembers: TeamMember[] = [
@@ -31,7 +30,14 @@ const TeamCarousel: React.FC = () => {
   };
 
   return (
-    <div style={{ position: 'relative', maxWidth: '500px', margin: 'auto' }}>
+    <div
+      style={{
+        position: 'relative',
+        maxWidth: '500px',
+        margin: 'auto',
+        padding: '0 15px',
+      }}
+    >
       <Carousel
         afterChange={handleChange}
         dots
@@ -55,9 +61,11 @@ const TeamCarousel: React.FC = () => {
             }}
           >
             <Image
-              src={member.image} 
+              src={member.image}
               alt={member.name}
-              layout="responsive"
+              layout="intrinsic"
+              width={500}
+              height={600}
               style={{
                 borderRadius: '8px',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
@@ -67,11 +75,51 @@ const TeamCarousel: React.FC = () => {
         ))}
       </Carousel>
       {teamMembers.map((member, index) => (
-        <div key={index} style={{ display: index === current ? 'block' : 'none', textAlign: "center", marginTop: "5%" }}>
-            <h4 style={{ color: "#8c52ff", fontWeight: "600", fontSize: "20px", letterSpacing: "-0.5px" }}>{member.name}</h4>
-            <p style={{ color: "#8c52ff", fontWeight: "300", fontSize: "20px", marginTop: "-8px", letterSpacing: "-1px" }}>{member.job}</p>
+        <div
+          key={index}
+          style={{
+            display: index === current ? 'block' : 'none',
+            textAlign: 'center',
+            marginTop: '5%',
+          }}
+        >
+          <h4
+            style={{
+              color: '#8c52ff',
+              fontWeight: '600',
+              fontSize: '18px',
+              letterSpacing: '-0.5px',
+            }}
+          >
+            {member.name}
+          </h4>
+          <p
+            style={{
+              color: '#8c52ff',
+              fontWeight: '300',
+              fontSize: '16px',
+              marginTop: '-8px',
+              letterSpacing: '-1px',
+            }}
+          >
+            {member.job}
+          </p>
         </div>
-        ))}
+      ))}
+      <style jsx>{`
+        @media (max-width: 768px) {
+        div {
+          margin-top: 50%;
+          max-width: 100%;
+        }
+        h4 {
+          font-size: 15px !important;
+        }
+        p {
+          font-size: 12px !important;
+        }
+      }
+      `}</style>
     </div>
   );
 };
