@@ -945,7 +945,7 @@ body {
   }
 
   .playlist {
-    height: 40vh;
+    height: 50vh;
   }
 
   .playlistContainer iframe {
@@ -953,7 +953,7 @@ body {
   }
 
   .mvv {
-    height: 210vh;
+    height: 260vh;
   }
 
   .mvvContainer {
@@ -979,7 +979,7 @@ body {
   }
 
   .sobre {
-    height: 50vh;
+    height: 90vh;
   }
 
   .sectionContent {
@@ -1029,7 +1029,7 @@ body {
   }
 
   .footer {
-    height: 85vh;
+    height: 90vh;
   }
 
   .footerContent {
