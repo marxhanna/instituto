@@ -185,7 +185,7 @@ body {
 .nossosProjetos {
   font-family: "Poppins";
   background-color: #f2f1f6;
-  height: 120vh;
+  height: 150vh;
 }
 
 .title {
@@ -677,7 +677,7 @@ body {
 
 .projects {
   padding-top: 5%;
-  height: 40vh;
+  height: 50vh;
 }
 
 .filterTags {
@@ -907,7 +907,7 @@ body {
   }
 
   .nossosProjetos {
-    height: 130vh;
+    height: 150vh;
   }
 
   .slider-container {
@@ -923,11 +923,11 @@ body {
   }
 
   .sobreNobis {
-    height: 32vh;
+    height: 40vh;
   }
 
   .playlist {
-    height: 40vh;
+    height: 50vh;
   }
 
   .playlistContainer iframe {
@@ -935,7 +935,7 @@ body {
   }
 
   .mvv {
-    height: 210vh;
+    height: 260vh;
   }
 
   .mvvContainer {
@@ -961,7 +961,7 @@ body {
   }
 
   .sobre {
-    height: 50vh;
+    height: 90vh;
   }
 
   .sectionContent {
@@ -1011,7 +1011,7 @@ body {
   }
 
   .footer {
-    height: 85vh;
+    height: 90vh;
   }
 
   .footerContent {
