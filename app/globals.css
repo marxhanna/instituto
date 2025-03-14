@@ -123,24 +123,6 @@ body {
   height: 100px;
 }
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  background-color: white;
-  margin-bottom: 5px;
-  transition: 0.3s ease;
-}
-
 .frontPageTitle {
   font-size: 54px;
   font-weight: 600;
