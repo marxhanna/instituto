@@ -24,5 +24,5 @@ jobs:
             git pull origin main
             npm install
             npm run build
-            pm2 kill
             pm2 start npm --name "Instituto Next.js" -- start -- --port=3009
+            pm2 restart "Instituto Next.js"
